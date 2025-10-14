@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+<body class="pagina-projetos">
+
+    <main>
+        <% data.projetos.forEach(projeto => { %>
+            <div class="container-card">
+                <img src="<%= projeto.imagem %>" alt="Imagem do projeto <%= projeto.titulo %>" />
+                <div class="info-card">
+                    <p><%= projeto.titulo %></p>
+                </div>
+                <div class="descricao-card">
+                    <p>
+                        <%- projeto.descricao %>
+                    </p>
+                    <div class="container-button">
+                        <button onclick="window.open('<%= projeto.link %>', '_blank')">VISUALIZAR PROJETO</button>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </main>
+
+</body>
+
+<%- include('partials/footer') %>

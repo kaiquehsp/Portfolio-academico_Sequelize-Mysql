@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<body class="pagina-disciplinas">
+
+    <main>
+        <h1 class="page-title">Disciplinas Cursadas</h1>
+
+        <div class="content-card">
+            <ul>
+                <% disciplinas.forEach(disciplina => { %>
+                    <li><%= disciplina %></li>
+                <% }) %>
+            </ul>
+        </div>
+    </main>
+
+</body>
+
+<%- include('partials/footer') %>

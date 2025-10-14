@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<body class="pagina-contato">
+
+    <main>
+        <h1 class="page-title">ENTRE EM CONTATO</h1>
+
+        
+            <p class="contact-intro">
+                Sinta-se à vontade para me contatar por qualquer um dos canais abaixo. Estou aberto a novas oportunidades e colaborações!
+            </p>
+            
+           
+                <div class="contact-item">
+                    <h2>E-mail</h2>
+                    <a href="mailto:<%= data.contato.email %>"><%= data.contato.email %></a>
+                </div>
+
+                <div class="contact-item">
+                    <h2>Telefone</h2>
+                    <p><%= data.contato.telefone %></p>
+                </div>
+
+                <div class="contact-item">
+                    <h2>Redes Sociais</h2>
+                    <div class="social-links-contact">
+                        <a href="<%= data.linksSociais.github %>" target="_blank">GitHub</a>
+                        <a href="<%= data.linksSociais.linkedin %>" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        
+    </main>
+
+</body>
+
+<%- include('partials/footer') %>

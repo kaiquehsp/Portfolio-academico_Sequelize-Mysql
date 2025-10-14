@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+<body class="pagina-sobre">
+    <main>
+        <section class="hero">
+            <div class="hero-photo"><img src="<%= data.foto %>" alt="Foto de <%= data.nomeCompleto %>"></div>
+            <div class="hero-text"><h1><%= data.nomeCompleto %></h1><p><%= data.titulo %></p></div>
+        </section>
+        <section class="content-section">
+            <div class="center-title"><h2 class="section-title">Sobre Mim</h2></div>
+            <div class="about-text"><p><%- data.sobreMim.replace(/\n/g, '<br>') %></p></div>
+        </section>
+        <section class="content-section">
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3>Formações</h3>
+                    <ul><% data.formacoes.forEach(f => { %><li><%= f %></li><% }) %></ul>
+                </div>
+                <div class="detail-card">
+                    <h3>Experiência</h3>
+                    <ul><% data.experiencias.forEach(e => { %><li><strong><%= e.empresa %></strong> - <%= e.cargo %></li><% }) %></ul>
+                </div>
+                <div class="detail-card">
+                    <h3>Soft Skills</h3>
+                    <ul><% data.softSkills.forEach(s => { %><li><%= s %></li><% }) %></ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<%- include('partials/footer') %>

@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<body class="pagina-dashboard">
+
+    <main>
+        <h1 class="page-title">Dashboard do Portfólio</h1>
+
+        <div class="dashboard-grid">
+            <div class="stat-card">
+                <h2><%= stats.totalDisciplinas %></h2>
+                <p>Disciplinas</p>
+            </div>
+            <div class="stat-card">
+                <h2><%= stats.totalProjetos %></h2>
+                <p>Projetos</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3>Tecnologias Mais Utilizadas</h3>
+            <ul>
+                <% for (const tech in stats.tecnologias) { %>
+                    <li><strong><%= tech %>:</strong> <%= stats.tecnologias[tech] %> projeto(s)</li>
+                <% } %>
+            </ul>
+        </div>
+    </main>
+
+</body>
+
+<%- include('partials/footer') %>

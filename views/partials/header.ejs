@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %> | <%= data.nomeCompleto %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<header>
+    <nav class="menu">
+        <ul>
+            <li><a href="/" class="<%= (typeof activePage !== 'undefined' && activePage === 'inicio') ? 'active' : '' %>">INÍCIO</a></li>
+            <li><a href="/sobre" class="<%= (typeof activePage !== 'undefined' && activePage === 'sobre') ? 'active' : '' %>">SOBRE MIM</a></li>
+            <li><a href="/projetos" class="<%= (typeof activePage !== 'undefined' && activePage === 'projetos') ? 'active' : '' %>">PROJETOS</a></li>
+            <li><a href="/disciplinas" class="<%= (typeof activePage !== 'undefined' && activePage === 'disciplinas') ? 'active' : '' %>">DISCIPLINAS</a></li>
+            <li><a href="/contato" class="<%= (typeof activePage !== 'undefined' && activePage === 'contato') ? 'active' : '' %>">CONTATO</a></li>
+            <li><a href="/dashboard" class="<%= (typeof activePage !== 'undefined' && activePage === 'dashboard') ? 'active' : '' %>">DASHBOARD</a></li>
+        </ul>
+    </nav>
+</header>
