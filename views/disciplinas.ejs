@@ -3,17 +3,25 @@
 <body class="pagina-disciplinas">
 
     <main>
-        <h1 class="page-title">Disciplinas Cursadas</h1>
-
-        <div class="content-card">
-            <ul>
-                <% disciplinas.forEach(disciplina => { %>
-                    <li><%= disciplina %></li>
-                <% }) %>
-            </ul>
+        <h2>Disciplinas Já Cursadas</h2>
+        <ul>
+          <% disciplinasCursadas.forEach(d => { %>
+            <li><%= d %></li>
+          <% }); %>
+        </ul>
+        <br><br>
+        <h2>Disciplinas em Andamento</h2>
+        <ul>
+          <% disciplinasEmAndamento.forEach(d => { %>
+            <li><%= d %></li>
+          <% }); %>
+        </ul>
+        
         </div>
     </main>
 
 </body>
 
 <%- include('partials/footer') %>
+
+

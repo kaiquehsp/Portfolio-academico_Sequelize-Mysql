@@ -14,35 +14,76 @@ const portfolioData = {
     anoIngresso: 2024,
     titulo: "Software Developer",
     foto: "/img/foto og.png",
-    sobreMim: `Olá! Meu nome é Kaique e sou desenvolvedor com foco em back-end...`,
+    sobreMim: `Olá! Meu nome é Kaique e sou desenvolvedor com foco em back-end. Gosto de entender a lógica por trás dos sistemas e trabalhar com soluções que tornem os processos mais eficientes e organizados. Tenho interesse especial por tudo que envolve estrutura, desempenho e boas práticas no desenvolvimento. Estou sempre buscando aprender mais, e aplicar o que estudo em projetos reais. Sou uma pessoa dedicada, curiosa e com muita vontade de contribuir com equipes e projetos que tragam desafios e crescimento.`,
     
-    disciplinas: [
+    // --- Disciplinas separadas ---
+    disciplinasCursadas: [
         "Algoritmos e Lógica de Programação",
-        "Estrutura de dados",
+        "Design Digital",
+        "Desenvolvimento web 1",
+        "Engenharia de software 1",
+        "Sistemas operacionais e redes de computadores",
+        "Modelagem de banco de dados",
+    ],
+
+    disciplinasEmAndamento: [
+        "Estrutura de Dados",
         "Engenharia de Software 2",
-        "Técnicas de programação 1",
         "Desenvolvimento Web 2",
-        "Banco de dados relacional",
-        "Matematica discreta"
+        "Banco de Dados Relacional",
+        "Técnicas de Programação 1",
+        "Matemática Discreta",
     ],
     
-    formacoes: [ "FATEC - Desenvolvimento de software multiplataforma", "ETEC - Desenvolvimento de sistemas" ],
-    experiencias: [ { empresa: "MULTICARD IDENTIFICAÇÕES", cargo: "Suporte técnico" } ],
+    formacoes: [
+        "FATEC - Desenvolvimento de software multiplataforma",
+        "ETEC - Desenvolvimento de sistemas"
+    ],
+    
+    experiencias: [
+        { empresa: "MULTICARD IDENTIFICAÇÕES", cargo: "Suporte técnico" },
+        { empresa: "DATASIDE", cargo: "Governança de dados" }
+    ],
+    
     softSkills: [ "Trabalho em equipe", "Comunicação", "Proatividade", "Organização" ],
     
     projetos: [
         {
-            titulo: "PROJETO API",
+            titulo: "PROJETO API - INTERNO",
             imagem: "/img/Kaytrack.png",
-            descricao: `O tema desse projeto é: Dados de importação e exportação...`,
-            link: "https://github.com/...",
-            tecnologias: ["Python", "Pandas", "Matplotlib"]
+            descricao: `O tema desse projeto é: Dados de importação e exportação... <br>
+                        <br>
+                        Nele atuei como parte da equipe de desenvolvedores (DEV TEAM), trabalhando no back-end com Python, usando bibliotecas como Pandas e Matplotlib.
+                        Esse projeto no geral, é uma ferramenta que podemos acompanhar dados estatísticos que foram divulgados diretamente pelo site do governo...
+                        <br><br>`,
+            link: "https://github.com/Templasan/DSM---Projeto-de-API-1-Semestre",
+            tecnologias: ["HTML","CSS","Python", "Pandas", "Matplotlib"]
         },
-        // ... (outros projetos)
-    ],
+        {
+            titulo: "PROJETO API - NEWE",
+            imagem: "/img/newe.png",
+            descricao: `A Newe Log, nossa empresa parceira, enfrenta desafios operacionais devido à descentralização de seus processos em múltiplas ferramentas, como Microsoft Lists, Google Forms e planilhas diversas. Essa fragmentação resulta em retrabalho, risco de erros, e dificulta a obtenção de uma visão consolidada dos dados comerciais, operacionais e administrativos. 
+                        <br>
+                        <br>
+                        A dor principal é a falta de uma única ferramenta, o que impacta a agilidade na tomada de decisões e a eficiência das equipes.
+                        <br>
+                        <br>
+                        Nosso desafio é desenvolver uma plataforma web integrada que centralize esses processos, automatize tarefas manuais e forneça dashboards com indicadores chaves, garantindo maior controle e eficiência para a empresa.
+                        <br><br>`,           
+                        link: "https://github.com/CodexDSM/CodeX",
+            tecnologias: ["HTML","CSS","Python"]
+        },
 
-    contato: { email: "kaiquehsp5@gmail.com", telefone: "(12) 99629-5323" },
-    linksSociais: { github: "https://github.com/kaiquehsp", linkedin: "https://www.linkedin.com/in/kaiquehenrique" }
+    ],
+    contato: {
+        email: "kaiquehsp5@gmail.com",
+        telefone: "(12) 99629-5323"
+    },
+    
+    linksSociais: {
+        github: "https://github.com/kaiquehsp",
+        linkedin: "https://www.linkedin.com/in/kaiquehenrique"
+    }
 };
 
 // --- ROTAS COM A VARIÁVEL 'activePage' ---
@@ -51,7 +92,7 @@ app.get('/', (req, res) => {
     res.render('index', { 
         pageTitle: 'Início', 
         data: portfolioData,
-        activePage: 'inicio' // Ativa o link 'Início'
+        activePage: 'inicio'
     });
 });
 
@@ -59,7 +100,7 @@ app.get('/sobre', (req, res) => {
     res.render('sobre', { 
         pageTitle: 'Sobre Mim', 
         data: portfolioData,
-        activePage: 'sobre' // Ativa o link 'Sobre Mim'
+        activePage: 'sobre'
     });
 });
 
@@ -67,8 +108,9 @@ app.get('/disciplinas', (req, res) => {
     res.render('disciplinas', {
         pageTitle: 'Disciplinas',
         data: portfolioData,
-        disciplinas: portfolioData.disciplinas,
-        activePage: 'disciplinas' // Ativa o link 'Disciplinas'
+        disciplinasCursadas: portfolioData.disciplinasCursadas,
+        disciplinasEmAndamento: portfolioData.disciplinasEmAndamento,
+        activePage: 'disciplinas'
     });
 });
 
@@ -76,7 +118,7 @@ app.get('/projetos', (req, res) => {
     res.render('projetos', {
         pageTitle: 'Projetos',
         data: portfolioData,
-        activePage: 'projetos' // Ativa o link 'Projetos'
+        activePage: 'projetos'
     });
 });
 
@@ -84,12 +126,15 @@ app.get('/contato', (req, res) => {
     res.render('contato', {
         pageTitle: 'Contato',
         data: portfolioData,
-        activePage: 'contato' // Ativa o link 'Contato'
+        activePage: 'contato'
     });
 });
 
 app.get('/dashboard', (req, res) => {
-    const totalDisciplinas = portfolioData.disciplinas.length;
+    const totalDisciplinas =
+        portfolioData.disciplinasCursadas.length +
+        portfolioData.disciplinasEmAndamento.length;
+        
     const totalProjetos = portfolioData.projetos.length;
 
     const contagemTecnologias = portfolioData.projetos
@@ -100,12 +145,12 @@ app.get('/dashboard', (req, res) => {
         }, {});
 
     const stats = { totalDisciplinas, totalProjetos, tecnologias: contagemTecnologias };
-    
+
     res.render('dashboard', {
         pageTitle: 'Dashboard',
         data: portfolioData,
         stats: stats,
-        activePage: 'dashboard' // Ativa o link 'Dashboard'
+        activePage: 'dashboard'
     });
 });
 
