@@ -6,7 +6,7 @@ app.use(express.static('assets'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-// --- DADOS COMPLETOS DO PORTFÓLIO ---
+
 const portfolioData = {
     nomeCompleto: "Kaique Henrique",
     curso: "Desenvolvimento de Software Multiplataforma",
@@ -16,7 +16,7 @@ const portfolioData = {
     foto: "/img/foto og.png",
     sobreMim: `Olá! Meu nome é Kaique e sou desenvolvedor com foco em back-end. Gosto de entender a lógica por trás dos sistemas e trabalhar com soluções que tornem os processos mais eficientes e organizados. Tenho interesse especial por tudo que envolve estrutura, desempenho e boas práticas no desenvolvimento. Estou sempre buscando aprender mais, e aplicar o que estudo em projetos reais. Sou uma pessoa dedicada, curiosa e com muita vontade de contribuir com equipes e projetos que tragam desafios e crescimento.`,
     
-    // --- Disciplinas separadas ---
+ 
     disciplinasCursadas: [
         "Algoritmos e Lógica de Programação",
         "Design Digital",
@@ -77,7 +77,6 @@ const portfolioData = {
     ],
     contato: {
         email: "kaiquehsp5@gmail.com",
-        telefone: "(12) 99629-5323"
     },
     
     linksSociais: {
@@ -86,7 +85,7 @@ const portfolioData = {
     }
 };
 
-// --- ROTAS COM A VARIÁVEL 'activePage' ---
+
 
 app.get('/', (req, res) => {
     res.render('index', { 
