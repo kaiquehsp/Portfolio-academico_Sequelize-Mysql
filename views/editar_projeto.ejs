@@ -1,0 +1,45 @@
+<%- include('partials/header', { pageTitle, data, activePage }) %>
+
+<main class="container-crud">
+
+    <h1 class="crud-title">Editar Projeto</h1>
+
+    <section class="crud-card">
+
+        <form action="/crud/projetos/<%= projeto.id %>/editar" method="POST" class="crud-form">
+
+            <label for="titulo">Título</label>
+            <input 
+                type="text" 
+                id="titulo" 
+                name="titulo" 
+                value="<%= projeto.titulo %>" 
+                required
+            >
+
+            <label for="descricao">Descrição</label>
+            <textarea 
+                id="descricao" 
+                name="descricao"
+            ><%= projeto.descricao %></textarea>
+
+            <label for="link">Link (GitHub / Deploy)</label>
+            <input 
+                type="text" 
+                id="link" 
+                name="link" 
+                value="<%= projeto.link %>"
+            >
+
+            <div class="crud-buttons">
+                <button type="submit" class="btn-primary">Salvar Alterações</button>
+                <a href="/crud/projetos" class="btn-secondary">Cancelar</a>
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+<%- include('partials/footer') %>

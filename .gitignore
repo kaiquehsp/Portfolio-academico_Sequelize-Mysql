@@ -1,0 +1,32 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ambientes
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+debug.log
+
+# Sistema / Temp
+.DS_Store
+Thumbs.db
+*.tmp
+
+# VSCode
+.vscode/
+.idea/
+
+# Builds
+dist/
+build/
+
+# Banco (caso gere dumps)
+*.sql
+*.sqlite

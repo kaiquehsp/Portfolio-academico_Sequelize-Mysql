@@ -163,3 +163,109 @@ header {
     .pagina-sobre .hero { flex-direction: column; }
     .dashboard-grid { flex-direction: column; }
 }
+
+.container-crud {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.crud-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.crud-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.crud-form input,
+.crud-form textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #0077ff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #005fcc;
+}
+
+.crud-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.crud-table th, 
+.crud-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.crud-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+    color: #0077ff;
+}
+
+.btn-delete:hover {
+    color: red;
+}
+
+.crud-divider {
+    margin: 40px 0;
+    border: none;
+    height: 2px;
+    background: #eee;
+}
+
+.crud-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.crud-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-input {
+    width: 100%;
+    margin: 8px 0;
+    padding: 8px;
+}

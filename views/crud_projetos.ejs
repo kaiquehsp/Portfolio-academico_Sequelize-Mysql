@@ -1,0 +1,130 @@
+<%- include('partials/header', { pageTitle, data, activePage }) %>
+
+<main class="container-crud">
+
+    <h1 class="crud-title">Gerenciar Projetos</h1>
+
+    
+    <section class="crud-card">
+        <h2>Novo Projeto</h2>
+        <form action="/crud/projetos" method="POST" class="crud-form">
+            <input type="text" name="titulo" placeholder="Título do Projeto" required>
+            <textarea name="descricao" placeholder="Descrição"></textarea>
+            <input type="text" name="link" placeholder="Link (GitHub ou Deploy)">
+            <button type="submit" class="btn-primary">Cadastrar</button>
+        </form>
+    </section>
+
+    <hr class="crud-divider">
+
+    
+    <section class="crud-card">
+        <h2>Projetos Cadastrados</h2>
+
+        <table class="crud-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Link</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% projetos.forEach(p => { %>
+                    <tr class="crud-row">
+                        
+                        
+                        <td><%= p.id %></td>
+
+                        
+                        <td>
+                            <span class="view"><%= p.titulo %></span>
+                            <input class="edit hidden" type="text" name="titulo" value="<%= p.titulo %>">
+                        </td>
+
+                        
+                        <td>
+                            <span class="view"><%= p.descricao %></span>
+                            <textarea class="edit hidden" name="descricao"><%= p.descricao %></textarea>
+                        </td>
+
+                        
+                        <td>
+                            <span class="view">
+                                <% if (p.link) { %>
+                                    <a href="<%= p.link %>" target="_blank">Abrir</a>
+                                <% } %>
+                            </span>
+
+                            <input class="edit hidden" type="text" name="link" value="<%= p.link %>">
+                        </td>
+
+                        
+                        <td class="crud-actions">
+
+                            
+                            <form action="/crud/projetos/<%= p.id %>/editar" method="POST" class="edit-form">
+
+                               
+                                <input type="hidden" name="titulo">
+                                <input type="hidden" name="descricao">
+                                <input type="hidden" name="link">
+
+                                <button type="submit" class="btn-save hidden">💾</button>
+                            </form>
+
+                            
+                            <button class="btn-edit" onclick="enableEdit(this)">✏️</button>
+
+                            
+                            <form action="/crud/projetos/<%= p.id %>/deletar" method="POST" class="crud-inline">
+                                <button class="btn-delete">🗑️</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+
+<script>
+function enableEdit(btn) {
+
+    const row = btn.closest("tr");
+    const viewEls = row.querySelectorAll(".view");
+    const editEls = row.querySelectorAll(".edit");
+    const saveBtn = row.querySelector(".btn-save");
+    const editForm = row.querySelector(".edit-form");
+
+    
+    viewEls.forEach(v => v.classList.add("hidden"));
+    editEls.forEach(e => e.classList.remove("hidden"));
+
+    
+    saveBtn.classList.remove("hidden");
+    btn.classList.add("hidden");
+
+    
+    saveBtn.onclick = () => {
+        editForm.querySelector('input[name="titulo"]').value = row.querySelector('input[name="titulo"]').value;
+        editForm.querySelector('input[name="descricao"]').value = row.querySelector('textarea[name="descricao"]').value;
+        editForm.querySelector('input[name="link"]').value = row.querySelector('input[name="link"]').value;
+    };
+}
+</script>
+
+<style>
+    .hidden { display: none; }
+    textarea.edit, input.edit {
+        width: 100%;
+    }
+</style>
+
+<%- include('partials/footer') %>
